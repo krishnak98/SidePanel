@@ -13,7 +13,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
   if (url.origin === SAATVA_ORIGIN) {
     await chrome.sidePanel.setOptions({
       tabId,
-      path: 'index.html',
+      path: 'src/sidepanel/index.html',
       enabled: true
     });
   } else {
