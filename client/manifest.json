@@ -3,7 +3,7 @@
     "name": "Krishna's sidepanel",
     "version": "1.1",
     "author" : "kamathk@uchicago.edu",
-    "description": "Shows how to display the side panel only on saatva.com using the Side Panel API.",
+    "description": "Saatva.com Side Panel .",
     "background": {
         "service_worker": "service-worker.js"
       },

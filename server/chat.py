@@ -1,54 +1,53 @@
 import openai 
 import os
 import pickle
-from langchain.chains import RetrievalQAWithSourcesChain, ConversationalRetrievalChain
+from langchain.chains import RetrievalQAWithSourcesChain, ConversationalRetrievalChain, RetrievalQA
 from langchain.chains.question_answering import load_qa_chain
 from langchain import OpenAI
 import csv
-from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
+from langchain.document_loaders import UnstructuredURLLoader
+import faiss 
+from langchain.vectorstores import FAISS
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.text_splitter import CharacterTextSplitter
+
+
 os.environ['OPENAI_API_KEY'] = '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'
 
+def get_urls():
+    urls = []
+    with open('utils/saatva_product_urls.txt', 'r') as csvfile:
+        csvreader = csv.reader(csvfile)
+        for row in csvreader:
+            if row:
+                for url in row: 
+                    if len(url): 
+                        urls.append(url)
+    return urls
+
+def create_vectorized_store(): 
+    urls = get_urls()
+
+    loaders = UnstructuredURLLoader(urls=urls)
+    data = loaders.load()
 
 
-urls = []
+    # try using HTMLHeaderTextSplitter? 
+    text_splitter = CharacterTextSplitter(separator='\n', chunk_size = 400, chunk_overlap = 30)
 
-with open('utils/saatva_product_urls.txt', 'r') as csvfile:
-    csvreader = csv.reader(csvfile)
-    for row in csvreader:
-        if row:
-            for url in row: 
-                if len(url): 
-                    urls.append(url)
+    docs = text_splitter.split_documents(data)
 
+    embedding = OpenAIEmbeddings()
 
-# from langchain.document_loaders import UnstructuredURLLoader
-# loaders = UnstructuredURLLoader(urls=urls)
-# data = loaders.load()
+    vectorStore_openAI = FAISS.from_documents(docs, embedding)
 
-# # print(data)
-
-# from langchain.text_splitter import CharacterTextSplitter
-
-# try using HTMLHeaderTextSplitter? 
-# text_splitter = CharacterTextSplitter(separator='\n', chunk_size = 400, chunk_overlap = 30)
-
-# docs = text_splitter.split_documents(data)
-
-# print(len(docs))
+    with open("faiss_store_openai.pkl", "wb") as f:
+        pickle.dump(vectorStore_openAI, f)
 
 
-# import faiss 
-# from langchain.vectorstores import FAISS
-# from langchain.embeddings import OpenAIEmbeddings
-# embedding = OpenAIEmbeddings()
 
-# vectorStore_openAI = FAISS.from_documents(docs, embedding)
-
-# with open("faiss_store_openai.pkl", "wb") as f:
-#     pickle.dump(vectorStore_openAI, f)
-
-def query(message): 
+def queryGPT(message): 
 
     with open("faiss_store_openai.pkl", "rb") as f:
         VectorStore = pickle.load(f)
