@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Krishna's sidepanel",
+    "version": "1.1",
+    "author" : "kamathk@uchicago.edu",
+    "description": "Shows how to display the side panel only on saatva.com using the Side Panel API.",
+    "background": {
+        "service_worker": "service-worker.js"
+      },
+    "action": {
+      "default_title": "Click to open panel"
+    },
+    "side_panel" : {
+        "default_path": "src/sidepanel/index.html"
+    },
+    "permissions": ["sidePanel", "tabs", "notifications"],
+    "commands": {
+      "_execute_action": {
+        "suggested_key": {
+          "default": "Ctrl+B",
+          "mac": "Command+B"
+        }
+      }
+    }
+}
