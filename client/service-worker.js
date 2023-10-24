@@ -6,7 +6,7 @@ chrome.sidePanel
   .catch((error) => console.error(error));
 
 chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
-  
+  console.log(tab.url)
   if (!tab.url) return;
   const url = new URL(tab.url);
   // Enables the side panel on saatva.com
