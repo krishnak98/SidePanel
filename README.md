@@ -10,9 +10,6 @@ This repository contains the code and instructions to create a Chrome Sidepanel 
 3. Run `python3 app.py`. This will start your server.
 4. Go to the website in chrome. Cmd + B opens the sidepanel -->
 
-Installation
-Follow these steps to set up the Chrome Sidepanel application:
-
 ## 1. Installation
 
 1. Clone the repo
@@ -35,7 +32,7 @@ python3 app.py
 ```
 
 This will load and activate the Chrome Sidepanel extension, making it accessible from your Chrome browser. 
-Go to your chrome extension, and ask questions, which GPT3.5 will answer, using the data in the URLs you provided.
+Activate your chrome extension (Cmd + B), and ask questions, which GPT3.5 will answer, using the data in the URLs you provided.
 
 ## 3.Architecture
 ![Image Alt Text](diagram.png)
