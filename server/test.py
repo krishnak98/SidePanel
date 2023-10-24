@@ -1,5 +1,5 @@
-from chat import queryLLM, queryLLM2
+from chat import queryLLM
 
 
 
-print(queryLLM2('Do you have anything for cats?'))
+print(queryLLM('Do you have anything for cats?'))
