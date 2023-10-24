@@ -1,5 +1,5 @@
-from chat import queryGPT
+from chat import queryLLM, queryLLM2
 
 
 
-print(queryGPT('What should i buy for my 4-legged buddy?'))
+print(queryLLM2('Do you have anything for cats?'))

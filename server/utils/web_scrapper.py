@@ -46,14 +46,15 @@ def output_to_file(existing_urls):
             url_with_slash = "https://www.saatva.com" + url 
             
             # Write the modified URL to the file, followed by a newline
-            file.write(url_with_slash + ",")
-
+            file.write( url_with_slash  +",")
+        for url in urls:
+            file.write(url+",")
     print(f"Modified URLs have been saved to {output_file}")
 
-
+   
 
 urls = ['https://www.saatva.com/mattresses', 'https://www.saatva.com/furniture', 'https://www.saatva.com/bedding', 'https://www.saatva.com/gifts','https://www.saatva.com/sale' ]
-existing_urls = set(urls)
+existing_urls = set()
 for url in urls: 
     existing_urls = scrape_distinct_urls(url, existing_urls)
 

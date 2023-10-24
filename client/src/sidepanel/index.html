@@ -6,7 +6,12 @@
     <title>Chatbot</title>
   </head>
   <body>
+    <div class="chatbot">
+    <div class="chatbot-header">
       <h1>Chatbot</h1>
+      
+      <!-- <h1>Chatbot</h1> -->
+      
       <div class="chat">
         <div class="messages">
           <ul class="message-list">
@@ -16,11 +21,20 @@
             </li>
           </ul>
           <div class="message-input">
+            <!-- <button type="button" class="scroll-btn" id="toggle-btn">Scroll</button> -->
+      <!-- <ul class="toggle-list" style="display: none">
+        <li><button>Overview</button></li>
+        <li><button>Layers</button></li>
+        <li><button>Details</button></li>
+        <li><button>Specs</button></li>
+        <li><button>Reviews</button></li>
+      </ul> -->
             <input type="text" placeholder="Type your message..." />
-            <button type="button" class="btn">Send</button>
+            <button type="button" class="send-btn">Send</button>
           </div>
         </div>
       </div>
+    </div>
       <script type="module" src="./sidepanel.js"></script>
   </body>
 </html>

@@ -22,13 +22,12 @@
   
   /* chatbox */
   .chat {
-    max-width: 400px;
     min-height: 400px;
     background-color: #fff; 
     padding-right: 15px;
     padding-left: 15px;
     margin: 20px auto;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
   }
   
   /* messages */
@@ -55,13 +54,20 @@
   }
   
   .item-primary {
+    width: 250px;
+    font-size: 14px;
     background-color: #f6f7f8;
     color: #3c3c3e;
+    margin-right: 100px;
+    text-align: left;
   }
   
   .item-secondary {
-    background-color: #5ccad7;
+    width: 200px;
+    font-size: 14px;
+    background-color: rgba(213,170,51,0.75);
     color: #fff;
+    margin-left: calc(28%); 
   }
   
   /* messages input */
@@ -83,4 +89,17 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
+  }
+
+  .toggle-list {
+    position: absolute ;
+  }
+  .chatbot-header {
+    background: #d5aa63;
+    text-align: center;
+  }
+
+  .chatbot-header > h1 { 
+    color: #fff;
+    font-size: 1.4rem;
   }
