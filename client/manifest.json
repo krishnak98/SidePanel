@@ -13,7 +13,7 @@
     "side_panel" : {
         "default_path": "src/sidepanel/index.html"
     },
-    "permissions": ["sidePanel", "tabs", "notifications", "scripting"],
+    "permissions": ["sidePanel", "tabs", "notifications", "scripting", "geolocation"],
     "host_permissions": [
       "https://www.saatva.com/*"
     ],

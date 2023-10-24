@@ -11,7 +11,7 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
 
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = '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'
 
 def get_urls():
     urls = []

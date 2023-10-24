@@ -8,7 +8,12 @@ var input = document.querySelector('input')
 
 btn.addEventListener('click', sendMessage)
 input.addEventListener('keyup', function(e){ if(e.keyCode == 13) sendMessage() })
-
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +"Longitude: " + position.coords.longitude;
+  }
+if ("geolocation" in navigator) {
+  console.log(navigator['geolocation'].getCurrentPosition(showPosition))
+}
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.buttonClicked) {
     // Button was clicked successfully
