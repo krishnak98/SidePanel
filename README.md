@@ -1,4 +1,4 @@
-# Chrome Sidepanel Chatbot using RAG (Retrieval Augmented Generation)
+# Sidepanel Chatbot using RAG (Retrieval Augmented Generation)
 
 ## Introduction
 This repository contains the code and instructions to create a Chrome Sidepanel application that utilizes OpenAI's GPT-3.5 to answer queries about products, using Retrieval Augmented Generation. The application consists of a client-side JavaScript component running within the Chrome browser, and a server-side Python Flask application for handling interactions with the OpenAI API. 
